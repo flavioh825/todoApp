@@ -6,8 +6,14 @@ export default class ActiveToDo extends Component {
   render() {
     return(
       <Container>
-        <Header><Body><Title>Active</Title></Body></Header>
-        <Content><Text>Active Section</Text></Content>    
+        <Header>
+          <Body>
+            <Title>Ativas</Title>
+          </Body>
+        </Header>
+        <Content>
+          <Text>Tarefas ativas</Text>
+        </Content>    
       </Container>
     );
   }
