@@ -2,23 +2,35 @@ import React, {Component} from 'react';
 import { Body, Icon, CheckBox, ListItem, Input, Button } from 'native-base';
 
 export default class AddToDo extends Component {
+
+  state = {
+    title: "",
+    completed: false,
+    createdAt: ""
+  }
+
+  setStateUtil = (property, value) => {
+    this.setState({
+      [property]: value
+    });
+  }
+
   render() {
-    const completed = false;
     return(
       <ListItem>
         <CheckBox
-          checked={completed} 
-          onPress={ () => console.log("set todo as completed") }/>
+          checked={this.state.completed} 
+          onPress={ () => this.setStateUtil("completed", !this.state.completed) }/>
         <Body>
           <Input 
             placeholder="Qual é a sua próxima tarefa?"
-            onChangeText={ (txt) => console.log(txt) }
-            onSubmitEditing={ () => console.log("text submited") }
+            onChangeText={ (txt) => this.setStateUtil("title", txt) }
+            onSubmitEditing={ () => this.props.onPress(this.state) }
           />
         </Body>
         <Button 
           transparent
-          onPress={ () => console.log("put todo in trash") }
+          onPress={ () => this.props.onCancel(show=false) }
         ><Icon name="Trash" /></Button>
       </ListItem>
     );

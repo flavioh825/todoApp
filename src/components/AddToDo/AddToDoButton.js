@@ -8,7 +8,7 @@ export default class AddToDoButton extends Component {
         <Fab
           style={{ backgroundColor: '#5067FF' }}
           position="bottomRight"
-          onPress={() => console.log("Add todo button clicked")}
+          onPress={() => this.props.onAddNewToDo(show = true) }
         ><Icon name="add" /></Fab>
       </Container>
     );
